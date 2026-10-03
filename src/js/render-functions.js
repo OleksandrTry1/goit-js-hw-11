@@ -24,11 +24,11 @@ import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 const refs = {
-  imagesList: document.querySelector('.images-list'),
-  loadLabel: document.querySelector('.list-load')
+  imagesList: document.querySelector('.gallery'),
+  loadLabel: document.querySelector('.loader')
 };
 
-let lightbox = new SimpleLightbox('.images-list a', {
+let lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
