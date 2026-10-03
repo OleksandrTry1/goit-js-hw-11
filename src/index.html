@@ -1,13 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanilla App Template</title>
     <link rel="stylesheet" href="./css/styles.css" />
+
+    <script type="module" src="./main.js"></script>
   </head>
   <body>
-    <script type="module" src="./main.js"></script>
+    <form class="form">
+      <label>
+        <input
+          type="text"
+          name="search-text"
+          placeholder="Search images..."
+          required
+        />
+      </label>
+      <button type="submit">Search</button>
+    </form>
+    <p class="list-load is-hidden">Loading images, please wait...</p>
+    <ul class="images-list">
+      <li class="images-list-item" style="background-image: url(./img/vite-logo.png);">
+        <ul class="image-info-container">
+          <li class="image-info-item">
+            <p class="likes label">Likes</p>
+            <p class="likes value">0</p>
+          </li>
+          <li class="image-info-item">
+            <p class="views label">Views</p>
+            <p class="views value">0</p>
+          </li>
+          <li class="image-info-item">
+            <p class="comments label">Comments</p>
+            <p class="comments value">0</p>
+          </li>
+          <li class="image-info-item">
+            <p class="downloads label">Downloads</p>
+            <p class="downloads value">0</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </body>
 </html>
