@@ -7,15 +7,6 @@ const refs = {
   searchForm: document.querySelector('.form')
 };
 
-async function init() {
-  try {
-    const images = await getImagesByQuery('apple');
-    createGallery(images);
-  } catch (error) {
-    console.error("Ошибка при получении изображений:", error);
-  }
-}
-
 async function onSearchFormSubmit(event) {
   event.preventDefault();
   
@@ -23,25 +14,29 @@ async function onSearchFormSubmit(event) {
 
   if (!query) return;
 
+  clearGallery();
+  
   try {
     showLoader();
     const images = await getImagesByQuery(query);
-    console.log(images)
+    
     if (images.length > 0) {
         createGallery(images);
     } else {
-        clearGallery()
         iziToast.error({
             message: 'Sorry, there are no images matching your search query. Please try again!',
             position: 'topRight'
-        })
+        });
     }
   } catch (error) {
     console.error("Ошибка при поиске:", error);
+    iziToast.error({
+        message: 'Something went wrong while fetching images. Please try again later!',
+        position: 'topRight'
+    });
   } finally {
     hideLoader();
   }
 }
 
-init();
 refs.searchForm.addEventListener('submit', onSearchFormSubmit);

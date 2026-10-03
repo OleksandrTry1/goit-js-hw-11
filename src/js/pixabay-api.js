@@ -8,11 +8,11 @@ export async function getImagesByQuery(query) {
     params: {
       key: API_KEY,
       q: query,
+      image_type: 'photo',
+      orientation: 'horizontal',
+      safesearch: true,
     },
   });
 
-  const images = response.data.hits;
-  console.log(images);
-  return images;
+  return response.data.hits;
 }
-
